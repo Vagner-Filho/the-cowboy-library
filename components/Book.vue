@@ -20,8 +20,8 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px"
         y="0px"
-        width="44px"
-        height="44px"
+        width="34px"
+        height="34px"
         viewBox="0 0 64 64"
         enable-background="new 0 0 64 64"
         xml:space="preserve"
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     setOption (event) {
-      const heart = event.target.firstElementChild
+      const heart = (event.target.hasAttribute('fill')) ? event.target : event.target.firstElementChild
 
       if (!this.liked) {
         this.setLike(heart)
@@ -64,22 +64,14 @@ export default {
       }
     },
     setLike (element) {
-      try {
-        element.removeAttribute('fill')
-        element.setAttribute('fill', 'red')
-        this.liked = true
-      } catch (error) {
-        console.log(error)
-      }
+      element.removeAttribute('fill')
+      element.setAttribute('fill', '#ff2e2e')
+      this.liked = true
     },
     setUnlike (element) {
-      try {
-        // element.removeAttribute('fill')
-        element.fill = '#000000'
-        this.liked = false
-      } catch (error) {
-        console.log(error)
-      }
+      element.removeAttribute('fill')
+      element.setAttribute('fill', 'none')
+      this.liked = false
     }
   }
 }
@@ -91,7 +83,7 @@ export default {
     }
     .book-info button {
         position: absolute;
-        bottom: 70px;
+        bottom: 50px;
         right: 70px;
         border: 0;
         background-color: unset;
@@ -101,5 +93,16 @@ export default {
     }
     .book-title, .author-name, .book-field {
         text-align: left;
+    }
+
+    @media(max-width: 1478px) {
+      .book-info button {
+        bottom: 10px;
+      }
+    }
+    @media(max-width: 991px) {
+      .book-info button {
+        right: 0px;
+      }
     }
 </style>
