@@ -22,4 +22,7 @@ export default {}
   .shadow-box1 {
     box-shadow: 2px 2px 7px -2px rgb(0 0 0);
   }
+  .d-grid {
+    display: grid;
+  }
 </style>

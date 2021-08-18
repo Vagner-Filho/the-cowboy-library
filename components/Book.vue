@@ -43,8 +43,8 @@ export default {
   name: 'Book',
   props: {
     bookIndex: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   data () {
